@@ -313,9 +313,13 @@ Check out [`jrcs/letsencrypt-nginx-proxy-companion`](https://github.com/jrcs/let
 
 +++
 
-This [repository](https://github.com/lewebsimple/docker-wordpress) contains a complete example along with instructions on how to get started.
+Many tasks like creating a local WordPress site or importing one from production can be automated using scripts and the WP-CLI.
 
-(It also contains this presentation).
+I might include some in the project sometime in the future.
+
++++
+
+There are some gotchas to setting this up (like resolving the database host from within the Apache2 container), so feel free to contact me or create an issue in the [repository](https://github.com/lewebsimple/docker-wordpress).
 
 ---
 
