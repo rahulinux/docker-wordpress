@@ -1,5 +1,5 @@
 # docker-wordpress
-[![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/lewebsimple/docker-wordpress/presentation?grs=github&t=white)
+[![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/lewebsimple/docker-wordpress?grs=github&t=white)
 
 This repository contains everything you need to start enjoying [Docker](https://www.docker.com/) for local WordPress development, as I presented at [WordCamp Halifax 2017](https://2017.halifax.wordcamp.org/sessions/#wcorg-session-651). 
 
