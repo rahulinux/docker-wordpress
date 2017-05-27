@@ -57,14 +57,14 @@ This means your development stack is
 
 An **image** is a lightweight, stand-alone, executable package that includes everything needed to run a piece of software, including the code, a runtime, libraries, environment variables, and config files.
 
-<span class="fragment">Explore and share container images on [Docker Hub](https://hub.docker.com/)</span>   
+<span class="fragment">Explore and share images on [Docker Hub](https://hub.docker.com/)</span>   
 
 +++
 
-These are a few of my favorites images:
+These are a few of my favorites:
 
 - [GitLab CE](https://hub.docker.com/r/gitlab/gitlab-ce/) - GitLab Community Edition
-- [MailDev](https://hub.docker.com/r/djfarrelly/maildev/) - SMTP Server + Web Interface for viewing and testing emails
+- [MailDev](https://hub.docker.com/r/djfarrelly/maildev/) - SMTP Server + UI for testing emails
 - [ownCloud](https://hub.docker.com/_/owncloud/) - Self-hosted file sync and share server
 - [Portainer](http://portainer.io/) - Lightweight UI for Docker management
 
@@ -82,7 +82,7 @@ FROM php:5-apache
 # Change UID/GID of www-data to match local user
 RUN usermod --non-unique --uid 1000 www-data \
   && groupmod --non-unique --gid 1000 www-data
-
+  
 # Enable Apache2 modules
 RUN a2enmod headers rewrite
 ```
@@ -244,7 +244,7 @@ docker-compose up -d
 
 +++
 
-Environment variables can be used for sensitive or specific configurations (i.e. passwords, TLD, etc.)
+Environment variables should be used for sensitive or specific configurations (i.e. passwords, TLD, etc.)
 
 They can be stored in the `.env` file (which should be excluded from Git).    
 
@@ -315,11 +315,11 @@ Check out [`jrcs/letsencrypt-nginx-proxy-companion`](https://github.com/jrcs/let
 
 Many tasks like creating a local WordPress site or importing one from production can be automated using scripts and the WP-CLI.
 
-I might include some in the project sometime in the future.
+I might include some in the project in the future.
 
 +++
 
-There are some gotchas to setting this up (like resolving the database host from within the Apache2 container), so feel free to contact me or create an issue in the [repository](https://github.com/lewebsimple/docker-wordpress).
+There are some gotchas to setting this up (like resolving the database host from within the Apache2 container), so feel free to contact me or create an [issue](https://github.com/lewebsimple/docker-wordpress/issues).
 
 ---
 
