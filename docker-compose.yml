@@ -1,0 +1,73 @@
+version: '3'
+
+services:
+
+  # NGINX proxy
+  nginx:
+    image: jwilder/nginx-proxy
+    container_name: nginx
+    hostname: nginx
+    restart: always
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./data/nginx/conf.d:/etc/nginx/conf.d
+      - ./data/nginx/vhost.d:/etc/nginx/vhost.d
+      - ./data/nginx/html:/usr/share/nginx/html
+      - ./data/nginx/certs:/etc/nginx/certs:ro
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+
+  # Let's encrypt
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    container_name: letsencrypt
+    hostname: letsencrypt
+    restart: always
+    environment:
+      - NGINX_PROXY_CONTAINER=nginx
+    volumes:
+      - ./data/nginx/conf.d:/etc/nginx/conf.d
+      - ./data/nginx/vhost.d:/etc/nginx/vhost.d
+      - ./data/nginx/html:/usr/share/nginx/html
+      - ./data/nginx/certs:/etc/nginx/certs:rw
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  # MySQL
+  mysql:
+    image: mysql
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    container_name: mysql
+    hostname: mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD-changeme}
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+
+  # Apache2
+  apache2:
+    build: ./images/apache2
+    container_name: apache2
+    hostname: apache2
+    restart: always
+    environment:
+      - TLD=${TLD-dev}
+      - VIRTUAL_HOST=*.${TLD}
+    volumes:
+      - ./data/html:/var/www/html
+      - ./data/xdebug:/tmp/xdebug
+
+# Portainer
+  portainer:
+    image: portainer/portainer
+    container_name: portainer
+    hostname: portainer
+    restart: always
+    ports:
+      - '9090:9000'
+    volumes:
+      - ./data/portainer:/data
+      - /var/run/docker.sock:/var/run/docker.sock

@@ -1,0 +1,9 @@
+# JetBrains project files
+.idea
+
+# Docker data volumes
+data/*
+!data/.gitkeep
+
+# Environment variables
+.env

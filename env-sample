@@ -1,0 +1,11 @@
+# Docker compose project name
+COMPOSE_PROJECT_NAME=example
+
+# Default TLD
+TLD=example.com
+
+# Let's encrypt
+LETSENCRYPT_EMAIL=info@example.com
+
+# MySQL
+MYSQL_ROOT_PASSWORD=changeme
