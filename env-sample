@@ -13,6 +13,12 @@ LETSENCRYPT_EMAIL=you@example.com
 # Apache2
 APACHE2_CONTAINER=apache2
 
+# Enable Xdebug
+XDEBUG_ENABLE=yes
+
 # MySQL
 MYSQL_HOST=mysql
 MYSQL_ROOT_PASSWORD=changeme
+
+# SMTP relay
+SMTP_RELAY=maildev

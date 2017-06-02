@@ -10,6 +10,7 @@ if [ -f /var/run/apache2/apache2.pid ]; then
 fi
 
 # Generate vhosts automatically
+echo "=> Generating vhosts..."
 echo "# Generated automatically" > /etc/apache2/sites-available/vhosts.conf
 cd /var/www/html
 for VHOST in * ; do
@@ -34,9 +35,23 @@ if [ ! -f /etc/apache2/sites-enabled/vhosts.conf ]; then
   a2ensite vhosts >> /dev/null
 fi
 
+# Configure Xdebug
+if [ "${XDEBUG_ENABLE}" == "yes" ]; then
+  echo "=> Enabling Xdebug..."
+  phpenmod xdebug
+else
+  echo "=> Disabling Xdebug..."
+  phpdismod xdebug
+fi
+
 # Configure SMTP relay
 if [ ! -z "${SMTP_RELAY}" ]; then
+  echo "=> Enabling SMTP relay... [${SMTP_RELAY}]"
+  phpenmod ssmtp
   sed -i "s@mailhub.*=.*@mailhub=${SMTP_RELAY}@g" /etc/ssmtp/ssmtp.conf
+else
+  echo "=> Disabling SMTP relay..."
+  phpdismod ssmtp
 fi
 
 exec apache2 -DFOREGROUND "$@"

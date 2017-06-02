@@ -60,7 +60,7 @@ RUN set -ex \
  	&& ln -sfT /dev/stderr "${APACHE_LOG_DIR}/error.log" \
  	&& ln -sfT /dev/stdout "${APACHE_LOG_DIR}/access.log" \
 
-  # Create XDebug directory
+  # Create Xdebug directory
   && mkdir -p /tmp/xdebug \
 
   # Change UID/GID of www-data to match local user

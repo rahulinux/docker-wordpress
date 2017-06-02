@@ -56,6 +56,8 @@ services:
     environment:
       - TLD=${TLD-dev}
       - VIRTUAL_HOST=*.${TLD}
+      - XDEBUG_ENABLE=${XDEBUG_ENABLE-no}
+      - SMTP_RELAY=${SMTP_RELAY}
     volumes:
       - ${DATA-./data}/html:/var/www/html
       - ${DATA-./data}/xdebug:/tmp/xdebug
