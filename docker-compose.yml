@@ -4,7 +4,7 @@ services:
 
   # NGINX proxy
   nginx:
-    build: ./images/nginx-proxy
+    image: jwilder/nginx-proxy
     container_name: nginx
     hostname: nginx
     restart: always
