@@ -1,0 +1,22 @@
+# Ignore everything except .gitignore and wp-content
+/*
+!.gitignore
+!wp-content/
+
+# Ignore everything in wp-content except plugins and themes
+wp-content/*
+!wp-content/mu-plugins/
+!wp-content/plugins/
+wp-content/plugins/akismet
+wp-content/plugins/hello.php
+!wp-content/themes/
+wp-content/themes/twenty*
+
+# Ignore PhpStorm project files
+.idea
+
+# Ignore OSX filesystem
+.DS_Store
+
+# Ignore NPM packages
+node_modules

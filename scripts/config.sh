@@ -25,7 +25,7 @@ function CONFIRM {
     esac
 }
 function INFO {
-  echo -e "\e[1;32m[${_FILE_}]\e[0m ${1}"
+  echo -e "\e[1;94m[${_FILE_}]\e[0m ${1}"
 }
 function WARNING {
   echo -e "\e[1;33m[${_FILE_}]\e[0m ${1}"
@@ -38,9 +38,9 @@ function ERROR {
 }
 
 # Helper function (domain)
-function DOMAIN_EXTRACT_NAME {
+function DOMAIN_CLEAN_NAME {
   if [ -z "$1" ]; then
-    ERROR "Can't extract empty domain name"
+    ERROR "Can't clean empty domain name"
   fi
   DOMAIN="$1"
   DOMAIN="${DOMAIN#www.}"
@@ -68,5 +68,4 @@ function MYSQL_CREATE_DB_USER {
   INFO "Creating database $DB_NAME and user $DB_USER..."
   mysql -h $MYSQL_HOST -u root -p$MYSQL_ROOT_PASSWORD -e  "CREATE DATABASE IF NOT EXISTS \`$DB_NAME\`;" >> /dev/null 2>&1
   mysql -h $MYSQL_HOST -u root -p$MYSQL_ROOT_PASSWORD -e "GRANT ALL ON \`$DB_NAME\`.* TO \`$DB_USER\`@\`%\` IDENTIFIED BY '$DB_PASSWORD';" >> /dev/null 2>&1
-
 }
