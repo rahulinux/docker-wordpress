@@ -1,15 +1,17 @@
 # Docker Compose project name
-COMPOSE_PROJECT_NAME=sample
+COMPOSE_PROJECT_NAME=example
 
 # Default TLD
 TLD=example.com
+
+# Default data root directory
+DATA=./data
 
 # Let's encrypt
 LETSENCRYPT_EMAIL=you@example.com
 
 # Apache2
 APACHE2_CONTAINER=apache2
-APACHE2_ROOT=./data/html
 
 # MySQL
 MYSQL_HOST=mysql

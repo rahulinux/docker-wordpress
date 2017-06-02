@@ -8,7 +8,7 @@ if [ -z "${DOMAIN}" ]; then
   ERROR "Please specify domain"
 fi
 
-cd ${APACHE2_ROOT}
+cd ${DATA-./data}/html
 INFO "Creating directory ${DOMAIN}..."
 mkdir -p ${DOMAIN}
 cd ${DOMAIN}

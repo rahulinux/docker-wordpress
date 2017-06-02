@@ -4,7 +4,7 @@ services:
 
   # NGINX proxy
   nginx:
-    image: jwilder/nginx-proxy
+    build: ./images/nginx-proxy
     container_name: nginx
     hostname: nginx
     restart: always
@@ -12,10 +12,10 @@ services:
       - '80:80'
       - '443:443'
     volumes:
-      - ./data/nginx/conf.d:/etc/nginx/conf.d
-      - ./data/nginx/vhost.d:/etc/nginx/vhost.d
-      - ./data/nginx/html:/usr/share/nginx/html
-      - ./data/nginx/certs:/etc/nginx/certs:ro
+      - ${DATA-./data}/nginx/conf.d:/etc/nginx/conf.d
+      - ${DATA-./data}/nginx/vhost.d:/etc/nginx/vhost.d
+      - ${DATA-./data}/nginx/html:/usr/share/nginx/html
+      - ${DATA-./data}/nginx/certs:/etc/nginx/certs:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
 
   # Let's encrypt
@@ -27,10 +27,10 @@ services:
     environment:
       - NGINX_PROXY_CONTAINER=nginx
     volumes:
-      - ./data/nginx/conf.d:/etc/nginx/conf.d
-      - ./data/nginx/vhost.d:/etc/nginx/vhost.d
-      - ./data/nginx/html:/usr/share/nginx/html
-      - ./data/nginx/certs:/etc/nginx/certs:rw
+      - ${DATA-./data}/nginx/conf.d:/etc/nginx/conf.d
+      - ${DATA-./data}/nginx/vhost.d:/etc/nginx/vhost.d
+      - ${DATA-./data}/nginx/html:/usr/share/nginx/html
+      - ${DATA-./data}/nginx/certs:/etc/nginx/certs:rw
       - /var/run/docker.sock:/var/run/docker.sock:ro
 
   # MySQL
@@ -45,7 +45,7 @@ services:
     ports:
       - '3306:3306'
     volumes:
-      - ./data/mysql:/var/lib/mysql
+      - ${DATA-./data}/mysql:/var/lib/mysql
 
   # Apache2
   apache2:
@@ -57,10 +57,10 @@ services:
       - TLD=${TLD-dev}
       - VIRTUAL_HOST=*.${TLD}
     volumes:
-      - ${APACHE2_ROOT-./data/html}:/var/www/html
-      - ./data/xdebug:/tmp/xdebug
+      - ${DATA-./data}/html:/var/www/html
+      - ${DATA-./data}/xdebug:/tmp/xdebug
 
-# Portainer
+  # Portainer
   portainer:
     image: portainer/portainer
     container_name: portainer
@@ -69,5 +69,5 @@ services:
     ports:
       - '9090:9000'
     volumes:
-      - ./data/portainer:/data
+      - ${DATA-./data}/portainer:/data
       - /var/run/docker.sock:/var/run/docker.sock
