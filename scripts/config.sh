@@ -38,9 +38,26 @@ function ERROR {
 }
 
 # Helper function (domain)
-function DOMAIN_CLEAN_NAME {
+function DOMAIN_VALIDATE {
   if [ -z "$1" ]; then
-    ERROR "Can't clean empty domain name"
+    ERROR "Domain is empty!"
+    false;
+  fi
+  # If domain is alphanumeric, let it go
+  if [ -z `echo $1 | tr -d "[:alnum:]"` ]; then
+    true;
+    return;
+  fi
+  # Strong domain validation
+  if [ -z `echo "$1" | grep -P '(?=^.{5,254}$)(^(?:(?!\d+\.)[a-zA-Z0-9_\-]{1,63}\.?)+(?:[a-zA-Z]{2,})$)'` ]; then
+    ERROR "Domain is invalid! [$1]"
+    false;
+  fi
+}
+
+function DOMAIN_SHORTEN {
+  if [ -z "$1" ]; then
+    ERROR "Can't shorten empty domain name"
   fi
   DOMAIN="$1"
   DOMAIN="${DOMAIN#www.}"
@@ -56,16 +73,25 @@ function MYSQL_CREATE_DB_USER {
   DB_PASSWORD="$3"
 
   if [ -z "${DB_NAME}" ]; then
-    ERROR "Empty database name"
+    ERROR "Empty MySQL database name"
   fi
   if [ -z "${DB_USER}" ]; then
-    ERROR "Empty database user"
+    ERROR "Empty MySQL database user"
   fi
   if [ -z "${DB_PASSWORD}" ]; then
-    ERROR "Empty database password"
+    ERROR "Empty MySQL database password"
   fi
 
-  INFO "Creating database $DB_NAME and user $DB_USER..."
-  mysql -h $MYSQL_HOST -u root -p$MYSQL_ROOT_PASSWORD -e  "CREATE DATABASE IF NOT EXISTS \`$DB_NAME\`;" >> /dev/null 2>&1
-  mysql -h $MYSQL_HOST -u root -p$MYSQL_ROOT_PASSWORD -e "GRANT ALL ON \`$DB_NAME\`.* TO \`$DB_USER\`@\`%\` IDENTIFIED BY '$DB_PASSWORD';" >> /dev/null 2>&1
+  INFO "Creating MySQL database and user... [${DB_NAME} / ${DB_USER}]"
+  mysql -h ${MYSQL_HOST} -u root -p${MYSQL_ROOT_PASSWORD} -e  "CREATE DATABASE IF NOT EXISTS \`${DB_NAME}\`;" >> ${LOG_OUTPUT} 2>&1
+  mysql -h ${MYSQL_HOST} -u root -p${MYSQL_ROOT_PASSWORD} -e "GRANT ALL ON \`${DB_NAME}\`.* TO \`${DB_USER}\`@\`%\` IDENTIFIED BY '${DB_PASSWORD}';" >> ${LOG_OUTPUT} 2>&1
+}
+
+function MYSQL_DESTROY_DB_USER {
+  DB_NAME="$1"
+  DB_USER="$2"
+
+  WARNING "Destroying MySQL database and user... [${DB_NAME} / ${DB_USER}]"
+  mysql -h ${MYSQL_HOST} -u root -p${MYSQL_ROOT_PASSWORD} -e  "DROP DATABASE \`${DB_NAME}\`;" >> ${LOG_OUTPUT} 2>&1
+  mysql -h ${MYSQL_HOST} -u root -p${MYSQL_ROOT_PASSWORD} -e "DROP USER \`${DB_USER}\`@\`%\`;" >> ${LOG_OUTPUT} 2>&1
 }

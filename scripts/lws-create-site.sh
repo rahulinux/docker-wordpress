@@ -3,12 +3,9 @@
 _DIR_=`dirname "$(readlink -f "$0")"`
 source ${_DIR_}/config.sh
 
-# Determine domain name
+# Determine valid domain name
 DOMAIN="$1"
-if [ -z "${DOMAIN}" ]; then
-  ERROR "Please specify domain"
-fi
-DOMAIN_CLEAN=`DOMAIN_CLEAN_NAME ${DOMAIN}`
+DOMAIN_VALIDATE "${DOMAIN}"
 
 # Create directory and 'cd' there
 cd ${DATA-./data}/html
@@ -44,8 +41,9 @@ else
 fi
 
 # Determine database name, user and password
-DB_NAME="wp_${DOMAIN_CLEAN}"
-DB_USER="wp_${DOMAIN_CLEAN}"
+DOMAIN_SHORT=`DOMAIN_SHORTEN ${DOMAIN}`
+DB_NAME="wp_${DOMAIN_SHORT}"
+DB_USER="wp_${DOMAIN_SHORT}"
 DB_PASSWORD=`date | md5sum | head -c12`
 
 # Create database and user
@@ -55,4 +53,4 @@ MYSQL_CREATE_DB_USER ${DB_NAME} ${DB_USER} ${DB_PASSWORD}
 INFO "Configuring WordPress database..."
 wp core config --dbname=${DB_NAME} --dbuser=${DB_USER} --dbpass=${DB_PASSWORD} --dbhost=${MYSQL_HOST} >> ${LOG_OUTPUT} 2>&1
 
-echo "Done! Visit http://${DOMAIN}.${TLD}"
+INFO "Site created successfully! [http://${DOMAIN}.${TLD}]"
