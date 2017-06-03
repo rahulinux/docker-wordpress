@@ -7,6 +7,9 @@ source ${_DIR_}/config.sh
 DOMAIN="$1"
 DOMAIN_VALIDATE "${DOMAIN}"
 
+# Confirm user action
+WARNING "About to create http://${DOMAIN}.${TLD}"
+
 # Create directory and 'cd' there
 cd ${DATA-./data}/html
 if [ ! -d "${DOMAIN}" ]; then
