@@ -16,11 +16,10 @@ if [ $? != 0 ]; then
   ERROR "Invalid remote host or directory."
 fi
 
-# Determine, validate and shorten domain name
+# Determine and validate domain name
 SITE_URL=`ssh ${REMOTE_HOST} "cd ${REMOTE_DIR} && wp --allow-root option get siteurl" 2>/dev/null`
 DOMAIN=${SITE_URL##*/}
 DOMAIN_VALIDATE "${DOMAIN}"
-DOMAIN_SHORT=`DOMAIN_SHORTEN ${DOMAIN}`
 
 # Validate domain name
 if [ -z "${DOMAIN}" ]; then
@@ -28,7 +27,11 @@ if [ -z "${DOMAIN}" ]; then
 fi
 
 # Confirm user action
-WARNING "About to import WordPress site from ${SITE_URL}"
+WARNING "Importing WordPress site... [${SITE_URL}]"
+
+# Shorten domain name
+DOMAIN_SHORT=`DOMAIN_SHORTEN ${DOMAIN}`
+CONFIRM "Shorten domain name? [${DOMAIN_SHORT}]" && DOMAIN=${DOMAIN_SHORT}
 
 # Create directory and 'cd' there
 cd ${DATA-./data}/html
@@ -81,7 +84,7 @@ chmod 644 wp-config.php
 wp core config --dbname=${DB_NAME} --dbuser=${DB_USER} --dbpass=${DB_PASSWORD} --dbhost=${MYSQL_HOST} --force >> ${LOG_OUTPUT} 2>&1
 
 # Reset database
-WARNING "About to reset database ${DB_NAME}"
+WARNING "About to reset database [${DB_NAME}]"
 wp db reset --yes >> ${LOG_OUTPUT} 2>&1
 
 # Synchronize database
