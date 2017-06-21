@@ -47,7 +47,8 @@ cd ${DOMAIN}
 
 # Synchronize files
 INFO "Synchronizing files..."
-rsync -ave "ssh" $REMOTE_HOST:$REMOTE_DIR/ ./ >> ${LOG_OUTPUT} 2>&1
+EXCLUDE_FILES="cgi-bin error_log .idea .well-known"
+rsync -ave "ssh" $REMOTE_HOST:$REMOTE_DIR/ ./ --exclude "${EXCLUDE_FILES}" >> ${LOG_OUTPUT} 2>&1
 
 # Prepare and initialize Git repository
 if [ -f .gitignore ]; then
