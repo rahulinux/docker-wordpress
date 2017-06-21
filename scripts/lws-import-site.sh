@@ -97,7 +97,7 @@ INFO "Replacing ${SITE_URL} with http://${DOMAIN}.${TLD}"
 wp search-replace "${SITE_URL}" "http://${DOMAIN}.${TLD}" >> ${LOG_OUTPUT} 2>&1
 
 # Deactivate unwanted plugins
-INFO "Deactivating plugin..."
+INFO "Deactivating plugins..."
 UNWANTED_PLUGINS="ithemes-security-pro \
   sendgrid-email-delivery-simplified \
   w3-total-cache \
@@ -106,4 +106,5 @@ UNWANTED_PLUGINS="ithemes-security-pro \
   wp-force-ssl"
 wp plugin deactivate ${PLUGIN} >> ${LOG_OUTPUT} 2>&1 || true
 
-INFO "Site imported successfully! [http://${DOMAIN}.${TLD}"
+echo
+INFO "WordPres site imported successfully! [http://${DOMAIN}.${TLD}]"
