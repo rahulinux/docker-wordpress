@@ -43,9 +43,42 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD-changeme}
     ports:
-      - '3306:3306'
+      - '127.0.1.100:3306:3306'
     volumes:
       - ${DATA-./data}/mysql:/var/lib/mysql
+
+  # MySQL (master)
+  master:
+    build: ./images/mysql
+    container_name: master
+    hostname: master
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD-changeme}
+      - MYSQL_REPLICATION=master
+      - MYSQL_SERVER_ID=1
+    ports:
+      - '127.0.2.100:3306:3306'
+    volumes:
+      - ${DATA-./data}/master:/var/lib/mysql
+
+  # MySQL (slave)
+  slave:
+    build: ./images/mysql
+    container_name: slave
+    hostname: slave
+    restart: always
+    depends_on:
+      - master
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD-changeme}
+      - MYSQL_REPLICATION=slave
+      - MYSQL_SERVER_ID=2
+      - MYSQL_MASTER_HOST=master
+    ports:
+      - '127.0.3.100:3306:3306'
+    volumes:
+      - ${DATA-./data}/slave:/var/lib/mysql
 
   # Apache2
   apache2:
