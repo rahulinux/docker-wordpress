@@ -90,5 +90,8 @@ EOL
 
 fi
 
+# Delete cron PID file
+rm -f /var/run/crond.pid
+
 echo "=> Starting MySQL server..."
 exec supervisord -n -c /etc/supervisor/supervisord.conf -e error

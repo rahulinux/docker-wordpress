@@ -11,6 +11,7 @@ COPY percona-release_0.1-4.xenial_all.deb /tmp/
 RUN dpkg -i /tmp/percona-release_0.1-4.xenial_all.deb \
   && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
   ca-certificates \
+  cron \
   less \
   mysql-server \
   nano \
