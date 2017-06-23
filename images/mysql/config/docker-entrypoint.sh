@@ -91,4 +91,4 @@ EOL
 fi
 
 echo "=> Starting MySQL server..."
-exec mysqld_safe
+exec supervisord -n -c /etc/supervisor/supervisord.conf -e error

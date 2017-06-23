@@ -60,7 +60,8 @@ services:
     ports:
       - '127.0.2.100:3306:3306'
     volumes:
-      - ${DATA-./data}/master:/var/lib/mysql
+      - ${DATA-./data}/master/data:/var/lib/mysql
+      - ${DATA-./data}/master/backup:/backup
 
   # MySQL (slave)
   slave:
@@ -78,7 +79,8 @@ services:
     ports:
       - '127.0.3.100:3306:3306'
     volumes:
-      - ${DATA-./data}/slave:/var/lib/mysql
+      - ${DATA-./data}/slave/data:/var/lib/mysql
+      - ${DATA-./data}/slave/backup:/backup
 
   # Apache2
   apache2:
