@@ -210,9 +210,9 @@ Providers include
 ### Take a scenario 
 
 +++
-![Python_App](assets/images/python_app.png)
+![Python_App](images/python_app.png)
 +++
-![Python_App_Container](assets/images/python_app_container_ship.png)
+![Python_App_Container](images/python_app_container_ship.png)
 +++
 ### Kubernetes 
 ---
