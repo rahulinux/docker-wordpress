@@ -1,3 +1,10 @@
+#### Traditional Setup 
+
+  - Physical Servers 
+  - Virtual Servers 
+
+![VMS](https://www.veeam.com/blog/wp-content/uploads/2015/10/2015-Q4-Physical-Servers-vs-VMs.png)
+
 #### Containers Basics 
 
 ![Docker+Container](https://alleslinux.com/wp-content/uploads/2016/10/container-docker-blue-whale.jpg)
@@ -18,6 +25,29 @@
 
 ### HOW DO THEY DIFFER FROM A VM?
 ![Containervsvm](http://windowsitpro.com/site-files/windowsitpro.com/files/uploads/2015/01/docker%20overview.jpg)
+
+---
+
+### Why Containers ?
+
+Four key benefits of using containers
+
+**Portable** : Image can be ship, it’s mutable, image has versions
+**Flexible** : You can create clean, reprodusable and moduler environment
+**Fast** : Speed at start quickly containers, Caching layer of docker make faster build container
+**Efficient** : we can allocate exactly resource we want like cpu,memory, it does require full operating system.
+
+
+---
+
+### Container Platform 
+
+  - Docker ( we are using this )
+  - AWS ECS
+  - LXD
+  - LXC
+  - RKT
+  
 +++
 
 An **image** is a lightweight, stand-alone, executable package that includes everything needed to run a piece of software, including the code, a runtime, libraries, environment variables, and config files.
