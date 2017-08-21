@@ -15,6 +15,8 @@
 
 ### WHAT IS A CONTAINER?
 
+---
+
   - A stand-alone executable package that contains:
      - Code
      - Runtime
@@ -26,6 +28,8 @@
 ---
 
 ### HOW DO THEY DIFFER FROM A VM?
+
+---
 ![Containervsvm](http://windowsitpro.com/site-files/windowsitpro.com/files/uploads/2015/01/docker%20overview.jpg)
 
 ---
