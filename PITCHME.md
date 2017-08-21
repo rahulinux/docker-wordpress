@@ -1,58 +1,23 @@
-#### Local WordPress Development with Docker
+#### Containers Basics 
 
-![Docker+WordPress](assets/images/docker-wordpress.png)
-
----
-
-### About me
-
-![Pascal Martineau](assets/images/pascalmartineau.jpeg)
-
-+++
-
-### Pascal Martineau
-[pascal@lewebsimple.ca](mailto:pascal@lewebsimple.ca)
-
-- Lead developer @ Le Web Simple since april 2016 |
-- Used to love Drupal, switched to WordPress |
-- ~150 WordPress sites across 3 servers |
-- Node.js on the side / Linux enthusiast |
+![Docker+Container](https://alleslinux.com/wp-content/uploads/2016/10/container-docker-blue-whale.jpg)
 
 ---
 
-### What is Docker?
+### WHAT IS A CONTAINER?
 
-![Docker](assets/images/docker.png)
-
-+++
-
-From the official website:
-
-> Docker is the world’s leading software container platform.
-
-+++
-
-Basically, it packages your server(s) into isolated container(s).
-
-+++
-
-It also manages your networks, port mappings and data volumes separately from these containers.
-
-+++
-
-Unlike VMs, containers do not bundle a full operating system - only libraries and settings required to make the software work are needed.
-
-+++
-
-This means your development stack is
-<span class="fragment">**FAST**</span>
-<span class="fragment">, **REPRODUCIBLE**</span>
-<span class="fragment"> and **ISOLATED** from your main OS.</span>
+  - A stand-alone executable package that contains:
+     - Code
+     - Runtime
+     - System tools
+     - Libraries
+     - Settings
+  - Isolates software from its surroundings
 
 ---
 
-### Some definitions...
-
+### HOW DO THEY DIFFER FROM A VM?
+![Containervsvm](http://windowsitpro.com/site-files/windowsitpro.com/files/uploads/2015/01/docker%20overview.jpg)
 +++
 
 An **image** is a lightweight, stand-alone, executable package that includes everything needed to run a piece of software, including the code, a runtime, libraries, environment variables, and config files.
