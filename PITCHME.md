@@ -40,10 +40,10 @@
 
 Four key benefits of using containers
 
-**Portable** : Image can be ship, it’s mutable, image has versions
-**Flexible** : You can create clean, reprodusable and moduler environment
-**Fast** : Speed at start quickly containers, Caching layer of docker make faster build container
-**Efficient** : we can allocate exactly resource we want like cpu,memory, it does require full operating system.
+  - **Portable** : Image can be ship, it’s mutable, image has versions
+  - **Flexible** : You can create clean, reprodusable and moduler environment
+  - **Fast** : Speed at start quickly containers, Caching layer of docker make faster build container
+  - **Efficient** : we can allocate exactly resource we want like cpu,memory, it does require full operating system.
 
 
 ---
