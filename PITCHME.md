@@ -214,6 +214,15 @@ Providers include
 +++
 ![Python_App_Container](images/python_app_container_ship.png)
 +++
+![Python_App_DB](images/3_container_db.png)
++++
+![Python_container_remote_storage](images/4_remote_storage.png)
++++
+![Python_remote_store](images/5_load_balancer.png)
++++
+![service_discovery](images/6_service_discovery.png)
++++
+
 ### Kubernetes 
 ---
 ### Why Kubernetes ?
