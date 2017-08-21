@@ -1,3 +1,5 @@
+Welcome to the Training session 
+---
 #### Traditional Setup 
 
 ---
