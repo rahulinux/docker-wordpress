@@ -167,6 +167,8 @@ Read the Docker [documentation](https://docs.docker.com) for more information.
 +++
 
 ---
+### A SIMPLE CI PROCESS
+---
 
 ### CHALLENGES PRESENTED BY CONTAINERS 
 
@@ -187,9 +189,26 @@ Scheduling
 +++
 Discovery 
 +++
-
+Load Balancing 
++++
+Secrets/configuration/storage management
++++
 ---
+### CONTAINER Orchestration
 
-### 
+Providers include
+  - Docker (swarm)
+  - Kubernetes (OpenSource, RedHat OpenShift, GCE)
+  - AWS ECS
+  - Mesosphere Marathon 
+---
+### Kubernetes 
+---
+### Why Kubernetes ?
+
+ - Open Source 
+ - Portable: public, private, hybrid, multi-cloud
+ - Self-healing: auto-placement, auto-restart, auto-replication, auto-scaling
+ 
 
 ### Any questions?
