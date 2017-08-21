@@ -166,8 +166,30 @@ docker rm myapp
 Read the Docker [documentation](https://docs.docker.com) for more information.
 +++
 
+---
 
+### CHALLENGES PRESENTED BY CONTAINERS 
+
++++
+Scaling of containers
++++
+Scaling of nodes
++++
+Scale your applications on the fly.
++++
+Roll out new features seamlessly.
++++
+Minimize application failure and node failure - Health Check
++++
+Monitoring 
++++
+Scheduling 
++++
+Discovery 
++++
 
 ---
+
+### 
 
 ### Any questions?
