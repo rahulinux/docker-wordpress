@@ -1,5 +1,7 @@
 #### Traditional Setup 
 
+---
+
   - Physical Servers 
   - Virtual Servers 
 
