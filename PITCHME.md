@@ -20,11 +20,11 @@
 ---
 
   - A stand-alone executable package that contains:
-     - Code
-     - Runtime
-     - System tools
-     - Libraries
-     - Settings
+      - Code
+      - Runtime
+      - System tools
+      - Libraries
+      - Settings
   - Isolates software from its surroundings
 
 ---
