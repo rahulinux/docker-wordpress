@@ -24,7 +24,7 @@
       - Runtime
       - System tools
       - Libraries
-      - Settings
+      - Setting
   - Isolates software from its surroundings
 
 ---
@@ -56,21 +56,15 @@ Four key benefits of using containers
   - LXC
   - RKT
   
-+++
+---
+
+### Terminologies 
+
+---
 
 An **image** is a lightweight, stand-alone, executable package that includes everything needed to run a piece of software, including the code, a runtime, libraries, environment variables, and config files.
 
 <span class="fragment">Explore and share images on [Docker Hub](https://hub.docker.com/)</span>   
-
-+++
-
-These are a few of my favorites:
-
-- [GitLab CE](https://hub.docker.com/r/gitlab/gitlab-ce/) - GitLab Community Edition
-- [MailDev](https://hub.docker.com/r/djfarrelly/maildev/) - SMTP Server + UI for testing emails
-- [ownCloud](https://hub.docker.com/_/owncloud/) - Self-hosted file sync and share server
-- [Portainer](http://portainer.io/) - Lightweight UI for Docker management
-
 +++
 
 A **Dockerfile** is a text document that contains all the commands a user could call on the command line to assemble an image.
