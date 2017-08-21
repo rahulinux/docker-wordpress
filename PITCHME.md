@@ -67,7 +67,7 @@ We can allocate exactly resource we want like cpu,memory, it does require full o
 
 ### Terminologies 
 
-++
++++
 
 An **image** is a lightweight, stand-alone, executable package that includes everything needed to run a piece of software, including the code, a runtime, libraries, environment variables, and config files.
 
