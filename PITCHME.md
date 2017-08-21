@@ -210,5 +210,9 @@ Providers include
  - Portable: public, private, hybrid, multi-cloud
  - Self-healing: auto-placement, auto-restart, auto-replication, auto-scaling
  
+ ---
+ 
+ ### Concepts 
+ 
 
 ### Any questions?
