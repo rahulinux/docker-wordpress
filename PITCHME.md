@@ -5,6 +5,8 @@
 
 ![VMS](https://www.veeam.com/blog/wp-content/uploads/2015/10/2015-Q4-Physical-Servers-vs-VMs.png)
 
+---
+
 #### Containers Basics 
 
 ![Docker+Container](https://alleslinux.com/wp-content/uploads/2016/10/container-docker-blue-whale.jpg)
