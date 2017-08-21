@@ -38,8 +38,8 @@
 
 ### Why Containers ?
 
++++
 Four key benefits of using containers
-
 +++
 ## Portable
 Image can be ship, it’s mutable, image has versions
