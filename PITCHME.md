@@ -280,6 +280,10 @@ Providers include
 +++
 ### Replication Controller 
 +++
+### Deployment  
++++
+### Stetefulset  
++++
 ### Label
 +++
 ### Secret
