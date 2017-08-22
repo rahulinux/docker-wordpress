@@ -263,6 +263,12 @@ Providers include
   - scheduler
   - controller-manager
 +++
+
+### Worker Node
+  - Docker
+  - kublet
+  - kube-proxy
+  - kubectl
 ---
  
 ### Concepts 
