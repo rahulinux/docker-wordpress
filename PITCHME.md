@@ -257,7 +257,11 @@ Providers include
 ### Component 
 
 +++
-
+### Master Node
+  - API Server 
+  - etcd storage
+  - scheduler
+  - controller-manager
 +++
 ---
  
