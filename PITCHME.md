@@ -271,8 +271,28 @@ Providers include
   - kubectl
   - calico
 ---
- 
+
 ### Concepts 
- 
++++
+### Nodes
++++
+### Pod 
++++
+### Label
++++
+### Secret
++++
+### ConfigMaps
++++
+### Services
++++
+### Load Balancer ( Ingress )
++++
+### Namespace
++++
+### Example Server and Pods 
+![Service](https://coreos.com/kubernetes/docs/latest/img/service.svg)
++++
+---
 
 ### Any questions?
