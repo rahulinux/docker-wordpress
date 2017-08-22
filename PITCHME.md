@@ -278,6 +278,8 @@ Providers include
 +++
 ### Pod 
 +++
+### Replication Controller 
++++
 ### Label
 +++
 ### Secret
