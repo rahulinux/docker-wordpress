@@ -234,12 +234,14 @@ Providers include
 ---
 
 ### What is Kubernetes ? 
-
++++
  - Platform for hosting docker containers in clusterd environment 
++++
  - Provides container grouping, load balancing, auto healing, manual scaling 
++++
  - Project started by Google 
  - Contributers == Google, Redhat, CoreOS, IBM, HP, Microsoft etc. 
- 
++++
 ---
 ### Kubernetes architecture 
 +++
