@@ -243,9 +243,21 @@ Providers include
  - Contributers == Google, Redhat, CoreOS, IBM, HP, Microsoft etc. 
 +++
 ---
+### Installation 
++++
+![Installation](images/installer_vs_the_cloud.png)
++++
+---
 ### Kubernetes architecture 
 +++
 ![arch](images/k8s_architecture.png)
++++
+---
+
+### Component 
+
++++
+
 +++
 ---
  
