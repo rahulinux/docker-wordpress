@@ -266,9 +266,10 @@ Providers include
 
 ### Worker Node
   - Docker
-  - kublet
+  - kubelet
   - kube-proxy
   - kubectl
+  - calico
 ---
  
 ### Concepts 
