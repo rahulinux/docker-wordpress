@@ -222,18 +222,32 @@ Providers include
 +++
 ![service_discovery](images/6_service_discovery.png)
 +++
-
+![Clouds](images/uneven_cloud.png)
++++
+---
 ### Kubernetes 
 ---
-### Why Kubernetes ?
+### Auto Scaling 
+### Load Balancing
+### Remote Storage 
+### Service Discovery 
+---
 
- - Open Source 
- - Portable: public, private, hybrid, multi-cloud
- - Self-healing: auto-placement, auto-restart, auto-replication, auto-scaling
+### What is Kubernetes ? 
+
+ - Platform for hosting docker containers in clusterd environment 
+ - Provides container grouping, load balancing, auto healing, manual scaling 
+ - Project started by Google 
+ - Contributers == Google, Redhat, CoreOS, IBM, HP, Microsoft etc. 
  
- ---
+---
+### Kubernetes architecture 
++++
+![arch](images/k8s_architecture.png)
++++
+---
  
- ### Concepts 
+### Concepts 
  
 
 ### Any questions?
